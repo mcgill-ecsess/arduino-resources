@@ -1,4 +1,0 @@
-# Analog Joystick
-
-## Resources
-- w

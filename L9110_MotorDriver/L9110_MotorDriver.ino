@@ -18,77 +18,29 @@ Created by Antoine Phan (@notkaramel) as ECSESS VP Technical Development
 */
 
 // Define the PWM pins locations
-#define LEFT_A 5
-#define LEFT_B 6
-
-#define RIGHT_A 9
-#define RIGHT_B 10
+#define MOTOR_1A 10
+#define MOTOR_1B 11
 
 
 void setup() {
     // Set all pins as output
-    pinMode(LEFT_A, OUTPUT);
-    pinMode(LEFT_B, OUTPUT);
-    pinMode(RIGHT_A, OUTPUT);
-    pinMode(RIGHT_B, OUTPUT);
+    pinMode(MOTOR_1A, OUTPUT);
+    pinMode(MOTOR_1B, OUTPUT);
 }
 
 void loop() {
-  
-}
+    analogWrite(MOTOR_1A, 255);
+    analogWrite(MOTOR_1B, 0);
 
-/**
- * Go forward at a certain speed
- * @param speed The speed to go forward at (0 to 255)
- */
-void goForward(int speed) {
+    delay(2000);
 
-}
+    analogWrite(MOTOR_1A, 0);
+    analogWrite(MOTOR_1B, 0);
 
+    delay(2000);
 
-void rightForward()     // Right wheel go forward
-{
-    analogWrite(B_1A, speed);
-    analogWrite(B_1B, stop);
-}
+    analogWrite(MOTOR_1A, 0);
+    analogWrite(MOTOR_1B, 255);
 
-void rightBackward()    // Right wheel go backward
-{
-    analogWrite(B_1A, stop);
-    analogWrite(B_1B, speed);
-}
-
-void leftForward()      // Left wheel go forward
-{
-    analogWrite(A_1A, stop);
-    analogWrite(A_1B, speed);
-}
-
-void leftBackward()     // Left wheel go backward
-{
-    analogWrite(A_1A, speed);
-    analogWrite(A_1B, stop);
-}
-
-void forward()         // Both wheels go forward
-{
-    leftForward();
-    rightForward();
-}
-
-void turnLeft(int delayTime)    // Turn left for a certain amount of time
-{
-
-    leftBackward();
-    rightForward();
-
-    delay(delayTime);
-}
-
-void turnRight(int delayTime)   // Turn right for a certain amount of time
-{
-    leftForward();
-    rightBackward();
-
-    delay(delayTime);
+    delay(2000);
 }
